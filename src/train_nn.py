@@ -29,7 +29,7 @@ def train_nn_classifier(X_train, y_train, X_val, y_val, X_test, y_test, best_par
                                    kernel_regularizer=regularizers.l2(best_params["l2"])))
         model.add(layers.Dropout(best_params["dropout"]))
 
-    model.add(layers.Dense(1, activation=None))
+    model.add(layers.Dense(1, activation="sigmoid"))
 
     model.compile(
         optimizer=keras.optimizers.Adam(learning_rate=best_params["lr"]),
